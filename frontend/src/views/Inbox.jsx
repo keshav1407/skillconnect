@@ -163,24 +163,26 @@ export default function Inbox({ currentUserId, currentUserRole, preselectedPartn
           </div>
         ) : (
           partners.map(p => {
-            const isActive = activePartner && activePartner.id === p.id;
+            const pRole = p.role || (currentUserRole === 'freelancer' ? 'recruiter' : 'freelancer');
+            const activeRole = activePartner && (activePartner.role || (currentUserRole === 'freelancer' ? 'recruiter' : 'freelancer'));
+            const isActive = activePartner && activePartner.id === p.id && activeRole === pRole;
             return (
               <div 
-                key={p.id} 
+                key={`${p.id}-${pRole}`} 
                 className={`chat-partner-item ${isActive ? 'active' : ''}`}
                 onClick={() => setActivePartner(p)}
               >
                 <div className="partner-header">
                   <span>{p.name}</span>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>
-                    {formatTime(p.last_timestamp)}
+                    {formatTime(p.timestamp || p.last_timestamp)}
                   </span>
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--secondary)' }}>
                   {p.company ? p.company : p.title}
                 </div>
                 <div className="partner-preview">
-                  {p.last_message}
+                  {p.lastMessage || p.last_message}
                 </div>
               </div>
             );
