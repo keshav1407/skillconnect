@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+
+# Python cache & envs
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Build outputs
+dist/
+build/
+bin/
+obj/
+
+# Local databases (optional, but good to ignore if recreating, let's keep it for sqlite since we seeded it for them to test instantly)
+# db.sqlite3
+
+# IDEs
+.idea/
+.vscode/
+.DS_Store
