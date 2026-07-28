@@ -3,11 +3,17 @@ from api.models import UserProfile, Freelancer, Recruiter, PastWork, Job, Messag
 import json
 from django.utils import timezone
 from datetime import timedelta
+from django.contrib.auth.models import User
 
 class Command(BaseCommand):
     help = 'Seeds the SkillConnect database with demo profiles, work histories, jobs, and chat messages.'
 
     def handle(self, *args, **kwargs):
+        self.stdout.write('Checking and seeding admin superuser...')
+        if not User.objects.filter(username='admin').exists():
+            User.objects.create_superuser('admin', 'admin@example.com', 'admin123')
+            self.stdout.write('Superuser "admin" created successfully.')
+            
         self.stdout.write('Clearing existing database records...')
         UserProfile.objects.all().delete()
         PastWork.objects.all().delete()
