@@ -69,5 +69,6 @@ Ensure you have **Node.js** (v18+) and **Python** (v3.10+) installed.
 
 ## 🔐 Mock Test Credentials
 Use these pre-seeded accounts to explore recruiter and candidate perspectives:
+example
 * **Recruiter**: Username: `sarah` / Password: `sarah123`
 * **Freelancer**: Username: `alice` / Password: `alice123`
