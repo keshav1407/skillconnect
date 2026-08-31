@@ -4,6 +4,7 @@ SkillConnect is a premium, full-stack matching platform designed to connect **Re
 
 Featuring a modern Glassmorphism dark/light interface, real-time messaging, and high-signal match scoring, SkillConnect makes it easy to hire or find contracts.
 
+
 ---
 
 ## 🚀 Key Features
